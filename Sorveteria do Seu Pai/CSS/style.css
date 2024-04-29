@@ -1,0 +1,25 @@
+body {background-color: black;}
+.bordapika {
+    border: 2px solid pink;
+    background-color: black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 20px;
+    border-radius: 40px;
+    border-style: outset;
+    border-width: 20px;
+    color: pink;
+    font-size: 400%;
+    text-align: center;
+    font-family: sans-serif;
+}
+.anunciopika {
+    padding: 20px;
+    color: white;
+    font-size: 200%;
+    font-family: verdana;
+    margin-left: 200px;
+    margin-top: -50px;
+}
