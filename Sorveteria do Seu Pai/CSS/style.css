@@ -1,25 +1,36 @@
-body {background-color: black;}
+body {background-color: rgb(245, 243, 243);}
 .bordapika {
-    border: 2px solid pink;
+    border: 2px solid palevioletred;
     background-color: black;
-    margin-top: 50px;
+    margin-top: 2px;
     margin-bottom: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
-    padding: 20px;
-    border-radius: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
     border-style: outset;
     border-width: 20px;
     color: pink;
-    font-size: 400%;
+    font-size: 470%;
     text-align: center;
     font-family: sans-serif;
 }
 .anunciopika {
     padding: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 200%;
     font-family: verdana;
-    margin-left: 200px;
+    margin-left: 80px;
+    margin-right: 80px;
     margin-top: -50px;
+}
+
+.aba_anuncios {
+    background-color: pink;
+    font-family: sans-serif;
+    padding: 25px;
+    border: 7px inset palevioletred;
+    font-size: 200%;
+    margin: -8px;
+    
 }
