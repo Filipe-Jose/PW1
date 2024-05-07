@@ -6,14 +6,31 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-a:link {
+ul{
+    list-style-type: none;
+    background-color: #2D702E;
+    color: white;
+    font-size: 200%;
+    margin-left: -48px;
+    margin-top: -8px;
+    margin-right: -48px;
+    border: #21A323 5px inset;
+    cursor: pointer;
+    font-family: verdana;
+    overflow: hidden;
+    }
+
+li a:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+}
+
+li a {
+    float: left;
+    padding: 16px;
     color: white;
     text-decoration: none;
-  }
-  
-  a:visited {
-    color: white;
-  }
+}
 
 .menu {
     background-color: #2D702E;
@@ -25,25 +42,6 @@ a:link {
     font-size: 20px;
 }
 
-.menu_botao {
-    background-color: #2D702E;
-    border: none;
-    color: white;
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.menu_botao:hover {
-    background-color: #21A323;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.19), 0 2px 2px 0 rgba(0,0,0,0.19);
-}
-
 .titulo {
     padding-top: 40px;
     font-size: 20px;
@@ -52,7 +50,7 @@ a:link {
     padding-left: 20px;
 }
 
-.imagem {
+img {
     display: flex;
     align-items: center;
     justify-content: center;
