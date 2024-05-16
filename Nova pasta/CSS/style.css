@@ -1,38 +1,76 @@
+:root {
+    --primary-bg: linear-gradient(135deg, #000000, #ff0000);
+    --secondary-bg: #2d2d2d;
+    --primary-text: #e0e0e0;
+    --secondary-text: #b0b0b0;
+    --primary-accent: #ff4c4c;
+    --secondary-accent: #b30000;
+    --border-color: #3d3d3d;
+    --hover-color: #ff6666;
+    --highlight-color: #ff9999;
+    --error-color: #ff1a1a;
+}
+
 body {
-    background-image: linear-gradient(to right, rgb(139, 1, 1), rgb(37, 1, 1));
-    color: white;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    font-family: verdana;
+header, footer {
+    background-color: var(--secondary-bg);
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
 }
 
-ul{
-    list-style-type: none;
-    background-color: rgb(54, 54, 54);
-    color: white;
-    font-size: 200%;
-    margin-left: -7px;
-    margin-top: -8px;
-    margin-right: -7px;
-    padding: 20px;
-    cursor: pointer;
-    font-family: verdana;
-    overflow: hidden;
-}
-
-li a:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    color: black;
-}
-  
-li a {
-    float: left;
-    padding: 16px;
-    color: white;
+a {
+    color: var(--primary-accent);
     text-decoration: none;
-    margin-left: 16px;
-    margin-top: -16px;
-    margin-left: -16px;
-    margin-right: -16px;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+button {
+    background-color: var(--primary-accent);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+input, textarea {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-accent);
+}
+
+.error {
+    color: var(--error-color);
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
 }

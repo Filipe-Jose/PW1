@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
     <link type="text/css" href="CSS/style.css" rel="stylesheet">
+    <link type="text/css" href="CSS/forms.css" rel="stylesheet">
 </head>
 <body>
     <ul>
@@ -13,40 +14,54 @@
         <li><a href="sobre.html">Sobre Nós</a></li>
     </ul>
     <form>
-        <div class="titulo">
-            <label for="nome">Insira seu nome:</label><br>
+        <div class="messageBoxContainer">
+            <div class="messageBox">
+                <div class="fileUploadWrapper">
+                <label for="file">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
+                    <circle
+                        stroke-width="20"
+                        stroke="#6c6c6c"
+                        fill="none"
+                        r="158.5"
+                        cy="168.5"
+                        cx="168.5"
+                    ></circle>
+                    <path
+                        stroke-linecap="round"
+                        stroke-width="25"
+                        stroke="#6c6c6c"
+                        d="M167.759 79V259"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-width="25"
+                        stroke="#6c6c6c"
+                        d="M79 167.138H259"
+                    ></path>
+                    </svg>
+                    <span class="tooltip">Imagens\</span>
+                </label>
+                <input type="file" id="file" name="file" />
+                </div>
+                <input required="" placeholder="Mensagem..." type="text" id="messageInput" />
+                <button id="sendButton">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+                    <path
+                    fill="none"
+                    d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+                    ></path>
+                    <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="33.67"
+                    stroke="#6c6c6c"
+                    d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+                    ></path>
+                </svg>
+                </button>
+            </div>
         </div>
-        <input name="nome" id="nome" type="text" size="35" placeholder="Nome completo:">
-        <br><br>
-        <div class="titulo">
-            <label">Insira sua sexualidade:</label><br>
-        </div>
-        <div class="opcao">
-            <input type="radio" id="homem" name="sexualidade">
-            <label for="homem">Homem</label>
-            <input type="radio" id="mulher" name="sexualidade">
-            <label for="mulher">Mulher</label>
-            <input type="radio" id="outro" name="sexualidade">
-            <label for="outro">Outro</label>
-        </div>
-        <br><br>
-        <div class="titulo">
-            <label>Insira suas matérias favoritas:</label><br>
-        </div>
-        <div class="opcao">
-            <input type="checkbox" id="linguagens" name="materia">
-            <label for="linguagens">Linguagens e Tecnologias</label><br>
-            <input type="checkbox" id="matematica" name="materia">
-            <label for="matematica">Matemática e Tecnologias</label><br>
-            <input type="checkbox" id="humanas" name="materia">
-            <label for="humanas">Ciências Humanas</label><br>
-            <input type="checkbox" id="natureza" name="materia">
-            <label for="natureza">Ciências da Natureza</label><br>
-            <input type="checkbox" id="curso" name="materia">
-            <label for="curso">Matérias do Curso</label><br>
-        </div>
-        <br>
-        <input type="submit" class="botao" value="Enviar">
     </form>
 </body>
 </html>
