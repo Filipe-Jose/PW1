@@ -11,6 +11,23 @@ body {
     height: 100vh;
 }
 
+input {
+    border: 2px transparent;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 350px;
+    transition: .05s ease;
+}
+
+input:hover {
+    border-bottom: 2px solid var(--botao);
+}
+
+input:focus {
+    outline-color: var(--botao);
+}
+
 button {    
     color: var(--botao);
     padding: 17px 40px;

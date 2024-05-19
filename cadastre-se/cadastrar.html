@@ -8,14 +8,31 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <div class="bloco">
+    <div class="bloco" style="font-size: 20px; height: 340px;">
         <h3 style="margin: -20px;">Crie uma conta:</h3>
         <hr style="margin-top: 35px;">
         <form>
-            <label for="email">Insira seu email:</label><br>
-            <input type="email" id="email" name="email" placeholder="email">
-
+            <label for="email" style="margin-left: -300px;">Email:</label><br>
+            <input type="email" id="email" name="email" maxlength="90"><br>
+            <label for="user" style="margin-left: -193px;">Nome de Usuário:</label><br>
+            <input type="text" id="user" name="user" maxlength="18"><br>
+            <label for="senha" style="margin-left: -291px;">Senha:</label><br>
+            <input type="password" id="senha" name="senha" maxlength="18"><br>
+            <label for="age">Idade:</label>
+            <input type="number" id="age" name="age" min="0" style="width: 50px;"><br>
+            <label>Escolaridade:</label>
+            <select id="cars" name="cars" style="margin: 10px;">
+                <option value="fundamental_incompleto">Ensino Fundamental Incompleto</option>
+                <option value="fundamental_completo"> Ensino Fundamental Completo</option>
+                <option value="medio">Ensino Médio</option>
+                <option value="superior">Ensino Superior</option>
+                <option value="pos">Pós-Graduação</option>
+                <option value="mestrado">Mestrado</option>
+                <option value="doutorado">Doutorado</option>
+            </select><br>
+            <button type="submit" >Criar Conta</button>
         </form>
+        <a href="index.html" style="font-size: 15px;">Voltar</a>
     </div>
 </body>
 </html>
