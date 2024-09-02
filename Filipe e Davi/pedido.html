@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pedido de Pizzaria</title>
+    <link href="./CSS/style.css" rel="stylesheet">
+    <style>
+        fieldset {
+            margin-bottom: 20px;
+        }
+        label, select, input {
+            margin-right: 10px;
+        }
+        .pizza-container, .bebida-container {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Valores fictícios para cada sabor de pizza
+        const precoSabores = {
+            calabresa: 35,
+            'quatro-queijos': 40,
+            pepperoni: 45,
+            margherita: 30
+        };
+
+        // Função para atualizar o formulário com base na quantidade de pizzas e bebidas
+        function atualizarForm() {
+            const qtdPizzas = parseInt(document.getElementById('quantidade-pizzas').value) || 0;
+            const qtdBebidas = parseInt(document.getElementById('quantidade-bebidas').value) || 0;
+            
+            document.getElementById('pizzas').innerHTML = gerarOpcoesPizzas(qtdPizzas);
+            document.getElementById('bebidas').innerHTML = gerarOpcoesBebidas(qtdBebidas);
+            
+            calcularTotal();
+        }
+
+        // Função para gerar os campos de seleção de pizzas
+        function gerarOpcoesPizzas(qtd) {
+            let html = '';
+            for (let i = 0; i < qtd; i++) {
+                html += `
+                <fieldset>
+                    <legend>${i + 1}ª Pizza:</legend>
+                    <label>Tipo:</label>
+                    <select class="tipo-pizza" onchange="exibirOpcoesPizzas()">
+                        <option value="inteira">Inteira</option>
+                        <option value="meia">Meia</option>
+                    </select><br>
+                    <div class="opcoes-pizza">
+                        <label>Sabores:</label>
+                        <select class="sabor-pizza inteiro" onchange="calcularTotal()">
+                            <option value="calabresa">Calabresa</option>
+                            <option value="quatro-queijos">Quatro Queijos</option>
+                            <option value="pepperoni">Pepperoni</option>
+                            <option value="margherita">Margherita</option>
+                        </select>
+                        <div class="meia-pizza" style="display: none;">
+                            <select class="sabor1" onchange="calcularTotal()">
+                                <option value="calabresa">Calabresa</option>
+                                <option value="quatro-queijos">Quatro Queijos</option>
+                                <option value="pepperoni">Pepperoni</option>
+                                <option value="margherita">Margherita</option>
+                            </select>
+                            <select class="sabor2" onchange="calcularTotal()">
+                                <option value="calabresa">Calabresa</option>
+                                <option value="quatro-queijos">Quatro Queijos</option>
+                                <option value="pepperoni">Pepperoni</option>
+                                <option value="margherita">Margherita</option>
+                            </select><br>
+                        </div>
+                    </div>
+                </fieldset>`;
+            }
+            return html;
+        }
+
+        // Função para gerar os campos de seleção de bebidas
+        function gerarOpcoesBebidas(qtd) {
+            let html = '';
+            for (let i = 0; i < qtd; i++) {
+                html += `
+                <fieldset>
+                    <legend>${i + 1}ª Bebida:</legend>
+                    <label>Tipo:</label>
+                    <select class="bebida" onchange="calcularTotal()">
+                        <option value="suco">Suco (R$ 6,00)</option>
+                        <option value="refrigerante">Refrigerante (R$ 7,00)</option>
+                        <option value="agua">Água (R$ 3,00)</option>
+                    </select><br>
+                </fieldset>`;
+            }
+            return html;
+        }
+
+        // Função para calcular o valor total do pedido
+        function calcularTotal() {
+            const precoSuco = 6;
+            const precoRefrigerante = 7;
+            const precoAgua = 3;
+
+            const tipoPizzas = document.querySelectorAll('.tipo-pizza');
+            const saboresInteiros = document.querySelectorAll('.sabor-pizza.inteiro');
+            const sabores1 = document.querySelectorAll('.sabor1');
+            const sabores2 = document.querySelectorAll('.sabor2');
+            const bebidas = document.querySelectorAll('.bebida');
+            
+            let totalPizzas = 0;
+            tipoPizzas.forEach((tipo, index) => {
+                let precoPizza;
+                if (tipo.value === 'inteira') {
+                    const sabor = saboresInteiros[index].value;
+                    precoPizza = precoSabores[sabor];
+                } else {
+                    const sabor1 = sabores1[index].value;
+                    const sabor2 = sabores2[index].value;
+                    precoPizza = (precoSabores[sabor1] + precoSabores[sabor2]) / 2;
+                }
+                totalPizzas += precoPizza;
+            });
+
+            let totalBebidas = 0;
+            bebidas.forEach(bebida => {
+                switch (bebida.value) {
+                    case 'suco':
+                        totalBebidas += precoSuco;
+                        break;
+                    case 'refrigerante':
+                        totalBebidas += precoRefrigerante;
+                        break;
+                    case 'agua':
+                        totalBebidas += precoAgua;
+                        break;
+                }
+            });
+
+            const total = totalPizzas + totalBebidas;
+            document.getElementById('valor-total').textContent = 'R$ ' + total.toFixed(2);
+        }
+
+        // Função para exibir as opções de pizza conforme o tipo
+        function exibirOpcoesPizzas() {
+            document.querySelectorAll('.tipo-pizza').forEach(tipo => {
+                const opcoes = tipo.parentElement.querySelector('.opcoes-pizza');
+                const meiaPizzaDiv = tipo.parentElement.querySelector('.meia-pizza');
+                if (tipo.value === 'meia') {
+                    meiaPizzaDiv.style.display = 'block';
+                    opcoes.querySelector('.sabor-pizza').style.display = 'none';
+                } else {
+                    meiaPizzaDiv.style.display = 'none';
+                    opcoes.querySelector('.sabor-pizza').style.display = 'inline';
+                }
+            });
+        }
+
+        // Inicializa o formulário e configura os eventos
+        function init() {
+            document.getElementById('quantidade-pizzas').addEventListener('input', atualizarForm);
+            document.getElementById('quantidade-bebidas').addEventListener('input', atualizarForm);
+            atualizarForm(); // Inicializa o formulário com 0 pizzas e bebidas
+        }
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <h1 style="padding-left: 20px;">Faça seu Pedido</h1>
+    <form>
+        <fieldset>
+            <legend>Quantidade:</legend>
+            <label for="quantidade-pizzas">Quantidade de Pizzas:</label>
+            <input type="number" id="quantidade-pizzas" min="0" value="0"><br>
+
+            <label for="quantidade-bebidas">Quantidade de Bebidas:</label>
+            <input type="number" id="quantidade-bebidas" min="0" value="0"><br>
+        </fieldset>
+
+        <div id="pizzas" class="pizza-container"></div>
+        <div id="bebidas" class="bebida-container"></div>
+
+        <h2>Valor Total: <span id="valor-total">R$ 0,00</span></h2>
+        <button type="button">Fazer Pedido</button>
+    </form>
+</body>
+</html>

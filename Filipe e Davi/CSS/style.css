@@ -1,35 +1,82 @@
+/* Definição de estilo global */
 body {
-    height: 100vh;
-    background-image: linear-gradient(210deg, rgb(127, 12, 145), rgb(67, 2, 72));
+    font-family: Arial, sans-serif;
+    background-color: #FFA500; /* Laranja */
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
-ul{
-    float: left;
-    list-style: none;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
+/* Estilo do contêiner do formulário */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
 }
 
-li {
-    float: left;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 5px;
-    transition: all ease 0.7s;
+/* Estilo dos fieldsets */
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-li:hover {
-    border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.8);
+legend {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-
-
-a {
-    text-decoration: none;
-    color: white;
+/* Estilo dos labels e inputs */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
-a:hover {
-    color: black;
+input[type="number"], select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="number"] {
+    max-width: 80px;
+}
+
+/* Estilo do botão */
+button {
+    background-color: #28a745; /* Verde */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838; /* Verde mais escuro */
+}
+
+/* Estilo dos campos de sabor da pizza */
+.sabor-pizza {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.meia-pizza {
+    margin-top: 1rem;
+}
+
+/* Estilo do valor total */
+h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
