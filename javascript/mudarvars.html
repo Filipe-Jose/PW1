@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="var1">Qual é o A: </label>
+    <input id="var1" type="number"><br>
+    <label for="var2">Qual é o B: </label>
+    <input id="var2" type="number"><br><br>
+    <button id="btn" onclick="trocar()">Clica aqui</button>
+
+    <p id="antes"></p>
+    <p id="meio"></p>
+    <p id="depois"></p>
+
+    <script>
+        function trocar(){
+            a = document.getElementById('var1').value;
+            b = document.getElementById('var2').value;
+            
+            document.getElementById('antes').textContent = `Antes: A = ${a} e B = ${b}`;
+
+            let temp = a;
+            a = b;
+            b = temp;
+
+            document.getElementById('meio').textContent = `Agora: A = ${a} e B = ${b}`;
+            
+            temp = a;
+            a = b;
+            b = temp;
+
+            document.getElementById('depois').textContent = `Agora: A = ${a} e B = ${b}`
+        }
+    </script>
+</body>
+</html>
