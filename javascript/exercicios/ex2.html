@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <link rel="stylesheet" href="./CSS/style.css" type="text/css">
+</head>
+<body>
+    <input type="number" id="n" placeholder="Insira um número"><br>
+    <button onclick="main()">Clique para executar</button><br>
+    <p id="par"></p>
+    <p id="positivo"></p>
+
+    <script>
+        function main(){
+            // definindo variáveis
+            const n = parseFloat(document.getElementById('n').value);
+            const par = document.getElementById('par');
+            const positivo = document.getElementById('positivo');
+
+            // lógica
+            if (!isNaN(n)) {
+                // par ou ímpar
+                if (n % 2 == 0) {
+                    par.textContent = 'O número é par'
+                } else {
+                    par.textContent = 'O número é ímpar'
+                }
+                // positivo ou negativo
+                if (n == 0) {
+                    positivo.textContent = 'O número é zero'
+                } else if (n > 0) {
+                    positivo.textContent = 'O número é positivo'
+                } else {
+                    positivo.textContent = 'O número é negativo'
+                }
+            } else {
+                par.textContent = 'Insira um número, por favor'
+                positivo.textContent = ''
+            }
+        }
+    </script>
+</body>
+</html>
