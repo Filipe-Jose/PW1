@@ -7,37 +7,36 @@
     <link rel="stylesheet" href="./CSS/style.css" type="text/css">
 </head>
 <body>
+    <h2>Exercício 2</h2>
+    <p>Faça um algoritmo para receber um número qualquer e imprimir na tela se o número é par ou ímpar e positivo ou negativo.</p><br>
     <input type="number" id="n" placeholder="Insira um número"><br>
     <button onclick="main()">Clique para executar</button><br>
-    <p id="par"></p>
-    <p id="positivo"></p>
+    <p id="output"></p>
 
     <script>
         function main(){
             // definindo variáveis
             const n = parseFloat(document.getElementById('n').value);
-            const par = document.getElementById('par');
-            const positivo = document.getElementById('positivo');
+            const output = document.getElementById('output');
 
             // lógica
             if (!isNaN(n)) {
                 // par ou ímpar
                 if (n % 2 == 0) {
-                    par.textContent = 'O número é par'
+                    output.textContent = 'O número é par '
                 } else {
-                    par.textContent = 'O número é ímpar'
+                    output.textContent = 'O número é ímpar '
                 }
                 // positivo ou negativo
                 if (n == 0) {
-                    positivo.textContent = 'O número é zero'
+                    output.textContent += 'e zero'
                 } else if (n > 0) {
-                    positivo.textContent = 'O número é positivo'
+                    output.textContent += 'e positivo'
                 } else {
-                    positivo.textContent = 'O número é negativo'
+                    output.textContent += 'e negativo'
                 }
             } else {
-                par.textContent = 'Insira um número, por favor'
-                positivo.textContent = ''
+                output.textContent = 'Insira os números, por favor.'
             }
         }
     </script>

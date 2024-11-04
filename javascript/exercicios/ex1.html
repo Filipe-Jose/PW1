@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./CSS/style.css" type="text/css">
 </head>
 <body>
+    <h2>Exercício 1</h2>
+    <p>Faça um algoritmo que leia os valores de A, B e C. Em seguida, imprima na tela a soma entre A e B, e mostre se a soma é maior ou menor que C.</p><br>
     <input type="number" placeholder="A" id="a"><br>
     <input type="number" placeholder="B" id="b"><br>
     <input type="number" placeholder="C" id="c"><br>
@@ -29,11 +31,11 @@
                 soma.textContent = `Soma: ${ab}`;
                 
                 if (ab > c){
-                    maior.textContent = 'C < A + B';
+                    maior.textContent = 'C é menor que A + B';
                 } else if (ab == c) {
-                    maior. textContent = 'C = A + B'
+                    maior. textContent = 'C é igual a A + B'
                 } else {
-                    maior.textContent = 'C > A + B';
+                    maior.textContent = 'C é maior que A + B';
                 }
             } else {
                 soma.textContent = 'Insira números, por favor.';
