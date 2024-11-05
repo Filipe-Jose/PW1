@@ -8,5 +8,22 @@
 </head>
 <body>
     <h2>Exercício 6</h2>
+    <p>Faça um algoritmo que leia um valor qualquer e imprima na tela com um reajuste de 5%.</p><br>
+    <input type="number" id="n" placeholder="Insira um número"><br>
+    <button onclick="main()">Clique para executar</button>
+    <p id="output"></p>
+
+    <script>
+        function main(){
+            const n = parseFloat(document.getElementById('n').value);
+            const output = document.getElementById('output');
+
+            if (!isNaN(n)) {
+                output.textContent = `Após reajuste: ${n * 1.05}`;
+            } else {
+                output.textContent = 'Insira os números, por favor.';
+            }
+        }
+    </script>
 </body>
 </html>
