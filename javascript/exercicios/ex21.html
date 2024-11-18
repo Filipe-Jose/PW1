@@ -8,5 +8,17 @@
 </head>
 <body>
     <h2>Exercício 21</h2>
+    <p>Faça um algoritmo que mostre um valor aleatório entre 0 e 100.</p><br>
+    <button onclick="main()">Clique para execultar</button><br>
+    <p id="n"></p>
+
+    <script>
+        function main(){
+            const numero = Math.floor(Math.random() * 100);
+            const output = document.getElementById('n');
+
+            output.textContent = numero;
+        }
+    </script>
 </body>
 </html>

@@ -8,5 +8,27 @@
 </head>
 <body>
     <h2>Exercício 17</h2>
+    <p>Faça um algoritmo que leia uma temperatura em Fahrenheit e calcule a temperatura correspondente em grau Celsius. Imprima na tela as duas temperaturas.</p><br>
+    <input type="number" placeholder="Fahrenheit" id="F"><br>
+    <button onclick="main()">Clique para executar</button><br>
+    <p id="outputF"></p>
+    <p id="outputC"></p>
+
+    <script>
+        function main(){
+            const fahrenheit = parseFloat(document.getElementById('F').value);
+            const celsius = 5 * (fahrenheit - 32) / 9;
+            const outputF = document.getElementById('outputF');
+            const outputC = document.getElementById('outputC');
+
+            if (!isNaN(fahrenheit)){
+                outputF.textContent = `${fahrenheit}°F`
+                outputC.textContent = `${celsius.toFixed(2)}°C`
+            } else {
+                outputF.textContent = 'Insira a temperatura, por favor.'
+                outputC.textContent = ''
+            }
+        }
+    </script>
 </body>
 </html>
